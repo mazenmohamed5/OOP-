@@ -1,0 +1,44 @@
+#include<iostream>
+#include<string>
+using namespace std;
+class patient {
+public:
+	string name, status; int age; float salary;
+};
+class doctor {
+public:
+	string name[3] = { "sami" , "ibrahim" , "assam" };
+	string title[3] = { "normal" , "bad" , "dangerous" };
+	string description[3] = {"assistant" , "professor" , "supervisor"};
+	string status;
+	void find_doctor(patient a)
+	{
+		for (int i = 0; i < 3; i++)
+		{ 
+			if (title[i] == a.status)
+			{
+				cout << "Your doctor's name : " << name[i] << "  its description is : " << description[i] << endl;
+			}
+		}
+	}
+	void status_determiner(string status)
+	{
+		if (status == "busy")
+			cout << "Wait a while" << endl;
+		else if (status == "free")
+			cout << "Your can enter now " << endl;
+		else
+			 cout << "Invalid status \n" ;
+	}
+};
+int main()
+{
+  	patient a;
+	doctor b;
+	cout << "Enter your name , age , salary and status :"; 
+	cin >> a.name >> a.age >> a.salary >> a.status;
+	b.find_doctor(a);
+	cout << "The doctor........Enter your status : "; cin >> b.status;
+	b.status_determiner(b.status);
+	return 0;
+  }
